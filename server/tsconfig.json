@@ -1,0 +1,11 @@
+// allows to control option and configuration of typescript compiler
+{
+    "compilerOptions": {
+        "target": "ES6", // specified javascript version
+        "module": "CommonJS",
+        "rootDir": "./src",
+        "outDir": "./build",
+        "esModuleInterop": true,
+        "strict": true, // allow series of strict type onfiguration
+    }
+}
