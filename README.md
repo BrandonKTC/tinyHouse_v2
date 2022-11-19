@@ -1,5 +1,3 @@
-![](./tinyhouse-repo-banner.jpg)
-
 # TinyHouse - Part II
 
 This repository, is broken down into individual modules, where each module focuses on one particular topic.
