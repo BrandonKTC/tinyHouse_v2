@@ -1,5 +1,5 @@
 import { Button, Menu, Avatar } from "antd";
-import { HomeFilled, UserOutlined, LogoutOutlined } from "@ant-design/icons";
+import { HomeOutlined, UserOutlined, LogoutOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOG_OUT } from "../../../../lib/graphql/mutation";
@@ -20,6 +20,7 @@ export const MenuItems = ({ viewer, setViewer }: Props) => {
 		onCompleted: (data) => {
 			if (data && data.logOut) {
 				setViewer(data.logOut);
+				sessionStorage.removeItem("token");
 				displaySuccessNotification("You've successfully logged out!");
 			}
 		},
@@ -39,7 +40,7 @@ export const MenuItems = ({ viewer, setViewer }: Props) => {
 			key: "host",
 			icon: (
 				<Link to="/host">
-					<HomeFilled />
+					<HomeOutlined />
 				</Link>
 			),
 			label: "host",
