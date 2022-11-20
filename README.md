@@ -7,7 +7,7 @@ This repository, is broken down into individual modules, where each module focus
 - [x] module_13
 - [x] module_14
 - [x] module_15
-- [] module_16
+- [x] module_16
 - [] module_17
 - [] module_18
 - [] module_19
