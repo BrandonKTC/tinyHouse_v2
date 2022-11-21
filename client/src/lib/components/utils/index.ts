@@ -1,5 +1,12 @@
 import { message, notification } from "antd";
 
+export const iconColor = "#1890ff";
+
+export const formatListingPrice = (price: number, round = true) => {
+	const formattedListing = round ? Math.round(price / 100) : price / 100;
+	return `${formattedListing} $`;
+};
+
 export const displaySuccessNotification = (
 	message: string,
 	description?: string
