@@ -62,8 +62,8 @@ export const userResolvers: IResolvers = {
 				cursor = cursor.skip(page > 0 ? (page - 1) * limit : 0);
 				cursor = cursor.limit(limit);
 
-				data.total = await cursor.count();
 				data.result = await cursor.toArray();
+				data.total = data.result.length;
 
 				return data;
 			} catch (error) {
@@ -88,8 +88,8 @@ export const userResolvers: IResolvers = {
 				cursor = cursor.skip(page > 0 ? (page - 1) * limit : 0);
 				cursor = cursor.limit(limit);
 
-				data.total = await cursor.count();
 				data.result = await cursor.toArray();
+				data.total = data.result.length;
 
 				return data;
 			} catch (error) {
