@@ -3,6 +3,11 @@
 .menu-avatar {
 	margin-top: 15px;
 }
+
+.ant-list-item {
+	padding: 12px 0 !important;
+}
+
 .menu {
 	width: 100%;
 	padding: 0 20px;
@@ -29,8 +34,18 @@
 	display: inline-block;
 	padding: 0 20px;
 }
+@media (max-width: 36em) {
+	.app-header__logo {
+		padding: 0 10px;
+	}
+}
 .app-header__logo img {
-	width: 36px;
+	width: 35px;
+}
+@media (max-width: 36em) {
+	.app-header__logo img {
+		width: 26px;
+	}
 }
 .app-header__search-input {
 	display: flex;
@@ -42,6 +57,11 @@
 	border: 0;
 	width: 100%;
 	max-width: 460px;
+}
+@media (max-width: 36em) {
+	.app-header__search-input .ant-input-group {
+		max-width: fit-content;
+	}
 }
 .app-header__search-input .ant-input-group input {
 	border: 1px solid #f0f1f2;
@@ -64,8 +84,19 @@
 .app-header-skeleton__logo {
 	padding: 0 20px;
 }
+@media (max-width: 36em) {
+	.app-header-skeleton__logo {
+		padding: 0 10px;
+	}
+}
 .app-header-skeleton__logo img {
-	width: 55px;
+	width: 35px;
+}
+
+@media (max-width: 36em) {
+	.app-header-skeleton__logo img {
+		width: 26px;
+	}
 }
 .app-header-skeleton__search-input {
 	display: flex;
@@ -101,7 +132,7 @@
 	right: 0;
 }
 .listing-card__description {
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 }
 .listing-card__price.ant-typography {
 	color: #1d226c;
@@ -208,7 +239,7 @@
 }
 .home {
 	padding: 60px 120px;
-	/* background-image: url(/static/media/map-background.c21df147.jpg); */
+	background-image: url("../sections/Home/assets/map-background.jpg");
 	background-repeat: no-repeat;
 	background-position: 10% 0;
 }
@@ -353,7 +384,7 @@
 	padding-top: 5px;
 }
 .listing-booking-modal__stripe-card-section {
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 }
 .listing-booking-modal__stripe-card {
 	padding: 10px;
@@ -651,9 +682,11 @@ html {
 	position: absolute;
 	bottom: 10px;
 	right: 10px;
+	z-index: 99;
 }
 @media (max-width: 36em) {
-	.app__affix-footer {
-		display: none;
+	.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item,
+	.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu {
+		padding: 0 10px;
 	}
 }
