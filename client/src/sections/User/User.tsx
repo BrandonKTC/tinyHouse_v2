@@ -79,7 +79,7 @@ export const User = ({ viewer, setViewer }: Props) => {
 	) : null;
 
 	return (
-		<Content>
+		<Content className="user">
 			<Row gutter={12} justify="space-between">
 				<Col xs={24}>{userProfileElement}</Col>
 				<Col xs={24}>{userListingsElement}</Col>
