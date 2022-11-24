@@ -2,6 +2,7 @@ export * from "./AppHeader";
 export * from "./NotFound";
 export * from "./Listings";
 export * from "./Listing";
+export * from "./Stripe";
 export * from "./Login";
 export * from "./Home";
 export * from "./Host";

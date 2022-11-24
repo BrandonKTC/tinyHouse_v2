@@ -25,14 +25,28 @@ export const User = ({ viewer, setViewer }: Props) => {
 
 	const { id } = useParams();
 
-	const { data, loading, error } = useQuery<UserData, UserVariables>(USER, {
-		variables: {
-			id: id || "",
-			bookingsPage,
-			listingsPage,
-			limit: PAGE_LIMIT,
-		},
-	});
+	const { data, loading, error, refetch } = useQuery<UserData, UserVariables>(
+		USER,
+		{
+			variables: {
+				id: id || "",
+				bookingsPage,
+				listingsPage,
+				limit: PAGE_LIMIT,
+			},
+		}
+	);
+
+	const handleUserRefetch = async () => {
+		await refetch();
+	};
+
+	const stripe_error = new URL(window.location.href).searchParams.get(
+		"stripe_error"
+	);
+	const stripeErrorBanner = stripe_error ? (
+		<ErrorBanner description="We had an issue connecting with Stripe. Please try again soon." />
+	) : null;
 
 	if (loading) {
 		return (
@@ -58,7 +72,13 @@ export const User = ({ viewer, setViewer }: Props) => {
 	const userBookings = user ? user.bookings : null;
 
 	const userProfileElement = user ? (
-		<UserProfile user={user} viewerIsUser={viewerIsUser} />
+		<UserProfile
+			viewer={viewer}
+			setViewer={setViewer}
+			handleUserRefetch={handleUserRefetch}
+			user={user}
+			viewerIsUser={viewerIsUser}
+		/>
 	) : null;
 
 	const userListingsElement = userListings ? (
@@ -80,6 +100,7 @@ export const User = ({ viewer, setViewer }: Props) => {
 
 	return (
 		<Content className="user">
+			{stripeErrorBanner}
 			<Row gutter={12} justify="space-between">
 				<Col xs={24}>{userProfileElement}</Col>
 				<Col xs={24}>{userListingsElement}</Col>

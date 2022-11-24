@@ -20,6 +20,7 @@ import {
 	NotFound,
 	User,
 	Login,
+	Stripe,
 } from "./sections";
 import { LOG_IN } from "./lib/graphql/mutation";
 import {
@@ -106,9 +107,13 @@ const App = () => {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/host" element={<Host />} />
-					<Route path="/listing/:id" element={<Listing />} />
 					<Route path="/listings" element={<Listings />} />
+					<Route path="/listing/:id" element={<Listing />} />
 					<Route path="/listings/:location" element={<Listings />} />
+					<Route
+						path="/stripe"
+						element={<Stripe viewer={viewer} setViewer={setViewer} />}
+					/>
 					<Route
 						path="/user/:id"
 						element={<User viewer={viewer} setViewer={setViewer} />}

@@ -276,7 +276,7 @@
 	transition: transform 0.5s ease-in-out;
 }
 .home__listings-img-cover:hover {
-	transform: scale(1.04);
+	transform: scale(1.02);
 }
 @media (max-width: 36em) {
 	.home__listings-img-cover {
