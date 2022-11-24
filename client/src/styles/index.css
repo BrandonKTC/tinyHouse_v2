@@ -190,7 +190,9 @@
 }
 .home-hero__cards {
 	padding-top: 60px;
+	transition: transform 0.5s ease;
 }
+
 .home-hero__cards .ant-card {
 	background: transparent;
 	cursor: pointer;
@@ -271,6 +273,10 @@
 .home__listings-img-cover {
 	width: 100%;
 	cursor: pointer;
+	transition: transform 0.5s ease-in-out;
+}
+.home__listings-img-cover:hover {
+	transform: scale(1.04);
 }
 @media (max-width: 36em) {
 	.home__listings-img-cover {

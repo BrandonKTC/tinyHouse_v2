@@ -8,7 +8,6 @@ import mapBackground from "./assets/map-background.jpg";
 import sanFransiscoImage from "./assets/san-fransisco.jpg";
 import cancunImage from "./assets/cancun.jpg";
 import { useNavigate } from "react-router-dom";
-import { displayErrorMessage } from "../../lib/components";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { LISTINGS } from "../../lib/graphql/queries";
@@ -35,10 +34,13 @@ export const Home = () => {
 	const navigate = useNavigate();
 
 	const onSearch = (value: string) => {
-		const trimValue = value.trim();
-		trimValue
-			? navigate(`listings/${trimValue}`)
-			: displayErrorMessage("Please enter a valid search");
+		const trimmedValue = value.trim();
+
+		if (trimmedValue) {
+			navigate(`/listings/${trimmedValue}`);
+		} else {
+			navigate("/listings/");
+		}
 	};
 
 	const renderListingsSection = () => {

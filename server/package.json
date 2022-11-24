@@ -8,6 +8,8 @@
     "build": "tsc -p ./"
   },
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.3.16",
+    "@types/google__maps": "^0.5.16",
     "@types/lodash.merge": "^4.6.7",
     "apollo-server-express": "^3.11.1",
     "cookie-parser": "^1.4.6",

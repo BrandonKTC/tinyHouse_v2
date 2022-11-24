@@ -28,10 +28,8 @@ export const UserBookings = ({
 			pagination={{
 				position: "top",
 				current: bookingsPage,
-				total: total ? total : undefined,
-				defaultPageSize: limit,
 				hideOnSinglePage: true,
-				showLessItems: true,
+				total: total ? total : undefined,
 				onChange: (page: number) => setBookingsPage(page),
 			}}
 			renderItem={(userBooking) => {

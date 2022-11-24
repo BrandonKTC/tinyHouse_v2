@@ -28,9 +28,7 @@ export const UserListings = ({
 				position: "top",
 				current: listingsPage,
 				total,
-				defaultPageSize: limit,
 				hideOnSinglePage: true,
-				showLessItems: true,
 				onChange: (page: number) => setListingsPage(page),
 			}}
 			renderItem={(userListings) => (

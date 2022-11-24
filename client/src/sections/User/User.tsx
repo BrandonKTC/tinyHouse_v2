@@ -17,7 +17,7 @@ interface Props {
 }
 
 const { Content } = Layout;
-const PAGE_LIMIT = 4;
+const PAGE_LIMIT = 20;
 
 export const User = ({ viewer, setViewer }: Props) => {
 	const [listingsPage, setListingsPage] = useState(1);
