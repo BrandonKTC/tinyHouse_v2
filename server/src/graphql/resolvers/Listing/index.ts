@@ -1,7 +1,7 @@
 import { IResolvers } from "@graphql-tools/utils";
 import { Request } from "express";
 import { ObjectId } from "mongodb";
-import { authorize, Google } from "../../../lib";
+import { authorize, Cloudinary, Google } from "../../../lib";
 import { Database, Listing, ListingType, User } from "../../../lib/types";
 import {
 	HostListingArgs,
@@ -118,12 +118,12 @@ export const listingResolvers: IResolvers = {
 			}
 
 			// Listing base64 encoded image -> Upload w/Cloudinary API -> Get uploaded image URL
-			// const imageUrl = await Cloudinary.upload(input.image);
+			const imageUrl = await Cloudinary.upload(input.image);
 
 			const insertRes = await db.listings.insertOne({
 				_id: new ObjectId(),
 				...input,
-				//   image: imageUrl,
+				image: imageUrl,
 				bookings: [],
 				bookingsIndex: {},
 				country,
