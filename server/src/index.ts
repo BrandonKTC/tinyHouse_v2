@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 
 const app = express();
 
+app.use(express.json({ limit: "2mb" }));
 app.use(cookieParser(process.env.SECRET));
 
 async function startserver() {

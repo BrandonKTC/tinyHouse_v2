@@ -12,6 +12,7 @@
     "@types/react-dom": "^18.0.9",
     "@types/react-router-dom": "^5.3.3",
     "antd": "^5.0.0",
+    "antd-img-crop": "^4.5.1",
     "dayjs": "^1.11.6",
     "graphql": "^15.8.0",
     "moment": "^2.29.4",
