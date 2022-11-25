@@ -5,6 +5,8 @@
   "dependencies": {
     "@ant-design/icons": "^4.8.0",
     "@apollo/client": "^3.7.1",
+    "@stripe/react-stripe-js": "^1.15.0",
+    "@stripe/stripe-js": "^1.44.1",
     "@types/graphql": "^14.2.3",
     "@types/jest": "24.0.16",
     "@types/node": "^16.18.3",

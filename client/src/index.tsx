@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { setContext } from "@apollo/client/link/context";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import {
 	ApolloClient,
 	ApolloProvider,
@@ -33,6 +35,8 @@ import { Viewer } from "./lib/types";
 import { AppHeaderSkeleton, ErrorBanner } from "./lib/components";
 
 const httpLink = createHttpLink({ uri: "/api" });
+
+const stripePromise = loadStripe(`${process.env.REACT_APP_S_PUBLISHABLE_KEY}`);
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
@@ -108,7 +112,16 @@ const App = () => {
 					<Route path="/" element={<Home />} />
 					<Route path="/host" element={<Host viewer={viewer} />} />
 					<Route path="/listings" element={<Listings />} />
-					<Route path="/listing/:id" element={<Listing />} />
+
+					<Route
+						path="/listing/:id"
+						element={
+							<Elements stripe={stripePromise}>
+								<Listing viewer={viewer} />
+							</Elements>
+						}
+					/>
+
 					<Route path="/listings/:location" element={<Listings />} />
 					<Route
 						path="/stripe"

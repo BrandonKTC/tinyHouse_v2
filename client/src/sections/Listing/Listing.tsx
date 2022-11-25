@@ -12,28 +12,44 @@ import {
 import {
 	ListingBookings,
 	ListingCreateBooking,
+	ListingCreateBookingModal,
 	ListingDetails,
 } from "./components";
+import { Viewer } from "../../lib/types";
+
+interface Props {
+	viewer: Viewer;
+}
 
 const PAGE_LIMIT = 3;
-
 const { Content } = Layout;
 
-export const Listing = () => {
+export const Listing = ({ viewer }: Props) => {
 	const { id } = useParams();
 	const [bookingsPage, setBookingsPage] = useState(1);
 	const [checkInDate, setCheckInDate] = useState<Dayjs | null>(null);
 	const [checkOutDate, setCheckOutDate] = useState<Dayjs | null>(null);
-	const { loading, data, error } = useQuery<ListingData, ListingVariables>(
-		LISTING,
-		{
-			variables: {
-				id: id || "",
-				bookingsPage,
-				limit: PAGE_LIMIT,
-			},
-		}
-	);
+	const [modalVisible, setModalVisible] = useState<boolean>(false);
+	const { loading, data, error, refetch } = useQuery<
+		ListingData,
+		ListingVariables
+	>(LISTING, {
+		variables: {
+			id: id || "",
+			bookingsPage,
+			limit: PAGE_LIMIT,
+		},
+	});
+
+	const clearBookingData = () => {
+		setModalVisible(false);
+		setCheckInDate(null);
+		setCheckOutDate(null);
+	};
+
+	const handleListingRefetch = async () => {
+		await refetch();
+	};
 
 	if (loading) {
 		return (
@@ -68,13 +84,31 @@ export const Listing = () => {
 
 	const listingCreateBookingElement = listing ? (
 		<ListingCreateBooking
+			viewer={viewer}
+			host={listing.host}
 			price={listing.price}
+			bookingsIndex={listing.bookingsIndex}
 			checkInDate={checkInDate}
 			setCheckInDate={setCheckInDate}
 			checkOutDate={checkOutDate}
 			setCheckOutDate={setCheckOutDate}
+			setModalVisible={setModalVisible}
 		/>
 	) : null;
+
+	const listingCreateBookingModalElement =
+		listing && checkInDate && checkOutDate && id ? (
+			<ListingCreateBookingModal
+				id={id}
+				price={listing.price}
+				checkInDate={checkInDate}
+				checkOutDate={checkOutDate}
+				modalVisible={modalVisible}
+				clearBookingData={clearBookingData}
+				handleListingRefetch={handleListingRefetch}
+				setModalVisible={setModalVisible}
+			/>
+		) : null;
 
 	return (
 		<Content className="listings">
@@ -87,6 +121,7 @@ export const Listing = () => {
 					{listingCreateBookingElement}
 				</Col>
 			</Row>
+			{listingCreateBookingModalElement}
 		</Content>
 	);
 };

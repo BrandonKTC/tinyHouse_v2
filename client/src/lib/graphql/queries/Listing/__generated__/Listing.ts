@@ -49,6 +49,7 @@ export interface Listing_listing {
   address: string;
   city: string;
   bookings: Listing_listing_bookings | null;
+  bookingsIndex: string;
   price: number;
   numOfGuests: number;
 }

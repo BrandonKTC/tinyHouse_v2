@@ -29,6 +29,7 @@ export const LISTING = gql`
 					checkOut
 				}
 			}
+			bookingsIndex
 			price
 			numOfGuests
 		}

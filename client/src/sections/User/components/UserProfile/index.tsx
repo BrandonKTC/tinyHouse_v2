@@ -14,7 +14,7 @@ interface Props {
 	user: UserData["user"];
 	viewer: Viewer;
 	setViewer: (viewer: Viewer) => void;
-	handleUserRefetch: () => void;
+	handleUserRefetch: () => Promise<void>;
 	viewerIsUser: boolean;
 }
 
