@@ -1,6 +1,9 @@
 {
   "name": "tinyhouse-server",
   "version": "0.1.0",
+  "engines": {
+    "node": "18.10.0"
+  },
   "scripts": {
     "start": "npx nodemon src/index.ts",
     "seed": "ts-node temp/seed.ts",
@@ -9,28 +12,29 @@
   },
   "dependencies": {
     "@googlemaps/google-maps-services-js": "^3.3.16",
-    "@types/google__maps": "^0.5.16",
-    "@types/lodash.merge": "^4.6.7",
+    "@graphql-tools/utils": "^9.1.1",
     "apollo-server-express": "^3.11.1",
     "cloudinary": "^1.32.0",
+    "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
-    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "googleapis": "^109.0.1",
     "mongodb": "^4.12.0",
-    "stripe": "^11.1.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.9.3"
+    "stripe": "^11.1.0"
   },
   "devDependencies": {
-    "@graphql-tools/utils": "^9.1.1",
+    "dotenv": "^16.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3",
+    "@types/google__maps": "^0.5.16",
+    "@types/lodash.merge": "^4.6.7",
+    "@types/compression": "^1.7.2",
     "@types/cookie-parser": "^1.4.3",
     "@types/express": "^4.17.14",
     "@types/mongodb": "^4.0.7",
     "@types/node": "^18.11.9",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
-    "eslint": "^8.27.0",
-    "lodash.merge": "^4.6.2"
+    "eslint": "^8.27.0"
   }
 }

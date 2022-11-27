@@ -4,7 +4,7 @@
         "target": "ES6", // specified javascript version
         "module": "CommonJS",
         "rootDir": "./src",
-        "outDir": "./build",
+        "outDir": "../tinyhouse-deploy/build",
         "esModuleInterop": true,
         "strict": true, // allow series of strict type onfiguration
     }

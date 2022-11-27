@@ -16,7 +16,7 @@ This repository, is broken down into individual modules, where each module focus
 - [x] module_22
 - [x] module_23
 - [x] module_24
-- [] module_25
+- [x] module_25
 - [] module_26
 - [] module_27
 - [] module_28

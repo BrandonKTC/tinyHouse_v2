@@ -1,5 +1,5 @@
-require("dotenv").config();
 import express from "express";
+import compression from "compression";
 import { ApolloServer } from "apollo-server-express";
 import { typeDefs, resolvers } from "./graphql";
 import { connectDatabase } from "./database";
@@ -9,6 +9,10 @@ const app = express();
 
 app.use(express.json({ limit: "2mb" }));
 app.use(cookieParser(process.env.SECRET));
+app.use(compression());
+
+app.use(express.static(`${__dirname}/client`));
+app.get("/*", (_req, res) => res.sendFile(`${__dirname}/client/index.html`));
 
 async function startserver() {
 	const db = await connectDatabase();
