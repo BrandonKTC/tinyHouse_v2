@@ -20,7 +20,7 @@ This repository, is broken down into individual modules, where each module focus
 
 - [x] module_15
 
-* Sign In wit google (OAuth 2.0)
+* Sign In with google (OAuth 2.0)
 
 - [x] module_16
 
